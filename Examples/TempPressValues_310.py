@@ -27,7 +27,7 @@ K0 = 273.15
 F = -R * L_b / (g_0 * M)
 
 t0 = 0.1  # sec
-count = 60 / t0
+count = round(60 / t0)
 
 
 def delta_h(T_b: float, L_b: float, P_b: float, P1: float, P2: float):
@@ -60,7 +60,7 @@ try:
 
         idx += 1
 
-        if idx == count:
+        if idx >= count:
             T_b = K0 + (maxT + minT) / 2
             P_b = (maxP + minP) / 2
             d_h = delta_h(T_b, L_b, P_b, maxP, minP)
