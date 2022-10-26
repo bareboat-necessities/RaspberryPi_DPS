@@ -66,9 +66,9 @@ try:
             d_h = delta_h(T_b, L_b, P_b, minP, maxP)
             idx = 0
             maxP = 0.0
-            minP = 0.0
+            minP = sys.float_info.max
             maxT = 0.0
-            minT = 0.0
+            minT = sys.float_info.max
             h_d_ft = d_h * 3.28084
             print(f'Sea: {P_b:8.1f} Pa {T_b:4.1f} K')
             print(f'Wave height: {h_d_ft:4.2f} ft')
