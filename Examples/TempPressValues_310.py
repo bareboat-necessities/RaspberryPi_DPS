@@ -20,6 +20,17 @@ dps310 = DPS.DPS()
 #
 # delta_h = (T_b/L_b) (power(P1/P_b, F) - power(P2/P_b, F))
 
+L_b = -0.0065
+R = 8.31432
+g_0 = 9.80665
+M = 0.0289644
+F = -R*L_b/(g_0*M)
+
+
+def delta_h(T_b: float, L_b: float, P_b: float, P1: float, P2: float):
+    return (T_b/L_b) * (pow(P1/P_b, F) - pow(P2/P_b, F))
+
+
 try:
 
         while True:
