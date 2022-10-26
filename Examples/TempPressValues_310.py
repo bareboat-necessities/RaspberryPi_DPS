@@ -24,6 +24,7 @@ R = 8.31432
 g_0 = 9.80665
 M = 0.0289644
 K0 = 273.15
+h_bias = 0.02
 F = - (R * L_b) / (g_0 * M)
 
 t0 = 0.1  # sec
@@ -64,6 +65,7 @@ try:
             T_b = K0 + ((maxT + minT) / 2)
             P_b = (maxP + minP) / 2
             d_h = delta_h(T_b, L_b, P_b, minP, maxP)
+            if d_h > h_bias: d_h -= h_bias
             idx = 0
             maxP = 0.0
             minP = sys.float_info.max
