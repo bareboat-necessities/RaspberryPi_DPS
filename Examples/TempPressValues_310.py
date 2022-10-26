@@ -1,4 +1,4 @@
-import DPS
+import DPS, sys
 
 from time import sleep
 
@@ -38,9 +38,9 @@ try:
 
     idx = 0
     maxP = 0.0
-    minP = 0.0
+    minP = sys.float_info.max
     maxT = 0.0
-    minT = 0.0
+    minT = sys.float_info.max
 
     while True:
 
