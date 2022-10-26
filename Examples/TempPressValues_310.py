@@ -1,4 +1,4 @@
-import DPS
+import DPS, sys
 
 from time import sleep
 
@@ -39,10 +39,10 @@ def delta_h(T_b: float, L_b: float, P_b: float, P1: float, P2: float):
 try:
 
     idx = 0
-    maxP = 0.0
     minP = dps310.measurePressureOnce()
-    maxT = 0.0
+    maxP = minP
     minT = dps310.measureTemperatureOnce()
+    maxT = minT
 
     while True:
 
