@@ -27,7 +27,7 @@ K0 = 273.15
 h_bias = 0.08
 F = - (R * L_b) / (g_0 * M)
 
-t0 = 0.1    # interval for sampling (sec)
+t0 = 0.2    # interval for sampling (sec)
 t1 = 15.0   # interval for measuring wave height (sec)
 count = round(t1 / t0)
 
