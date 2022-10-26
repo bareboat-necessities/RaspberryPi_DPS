@@ -29,11 +29,6 @@ F = -R * L_b / (g_0 * M)
 t0 = 0.1  # sec
 count = 60 / t0
 
-maxP = 0.0
-minP = 0.0
-maxT = 0.0
-minT = 0.0
-
 
 def delta_h(T_b: float, L_b: float, P_b: float, P1: float, P2: float):
     return (T_b / L_b) * (pow(P1 / P_b, F) - pow(P2 / P_b, F))
@@ -42,6 +37,10 @@ def delta_h(T_b: float, L_b: float, P_b: float, P1: float, P2: float):
 try:
 
     idx = 0
+    maxP = 0.0
+    minP = 0.0
+    maxT = 0.0
+    minT = 0.0
 
     while True:
 
@@ -71,7 +70,7 @@ try:
             maxT = 0.0
             minT = 0.0
             h_d_ft = d_h * 3.28084
-            print(f'{h_d_ft:4.2f} ft')
+            print(f'Wave height: {h_d_ft:4.2f} ft')
 
 except KeyboardInterrupt:
 
