@@ -9,7 +9,7 @@ dps310 = DPS.DPS()
 # L_b = standard temperature lapse rate [K/m] = -0.0065 [K/m]
 # h   = height about sea level [m]
 # h_b = height at the bottom of atmospheric layer [m]
-# R   = universal gas constant = 8.31432 [N*m/(mol*K)]
+# R   = universal gas constant = 8.3144598 [N*m/(mol*K)]
 # g_0 = gravitational acceleration constant = 9.80665 (m/s2)
 # M   = molar mass of Earth’s air = 0.0289644 [kg/mol]
 #
