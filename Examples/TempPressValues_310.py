@@ -70,6 +70,7 @@ try:
             maxT = 0.0
             minT = 0.0
             h_d_ft = d_h * 3.28084
+            print(f'Sea: {P_b:8.1f} Pa {T_b:4.1f} K')
             print(f'Wave height: {h_d_ft:4.2f} ft')
 
 except KeyboardInterrupt:
