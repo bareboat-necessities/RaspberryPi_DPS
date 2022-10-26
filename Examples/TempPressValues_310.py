@@ -2,7 +2,6 @@ import DPS
 
 from time import sleep
 
-
 dps310 = DPS.DPS()
 
 # P_b = static pressure (pressure at sea level) [Pa]
@@ -24,29 +23,56 @@ L_b = -0.0065
 R = 8.31432
 g_0 = 9.80665
 M = 0.0289644
-F = -R*L_b/(g_0*M)
+K0 = 273.15
+F = -R * L_b / (g_0 * M)
+
+t0 = 0.1  # sec
+count = 60 / t0
+
+maxP = 0.0
+minP = 0.0
+maxT = 0.0
+minT = 0.0
 
 
 def delta_h(T_b: float, L_b: float, P_b: float, P1: float, P2: float):
-    return (T_b/L_b) * (pow(P1/P_b, F) - pow(P2/P_b, F))
+    return (T_b / L_b) * (pow(P1 / P_b, F) - pow(P2 / P_b, F))
 
 
 try:
 
-        while True:
+    idx = 0
 
-            scaled_p = dps310.calcScaledPressure()
+    while True:
 
-            scaled_t = dps310.calcScaledTemperature()
+        scaled_p = dps310.calcScaledPressure()
+        scaled_t = dps310.calcScaledTemperature()
+        p = dps310.calcCompPressure(scaled_p, scaled_t)
+        t = dps310.calcCompTemperature(scaled_t)
 
-            p = dps310.calcCompPressure(scaled_p, scaled_t)
+        print(f'{p:8.1f} Pa {t:4.1f} C')
 
-            t = dps310.calcCompTemperature(scaled_t)
+        sleep(t0)
 
-            print(f'{p:8.1f} Pa {t:4.1f} C')
+        if t > maxT: maxT = t
+        if t < minT: minT = t
+        if p > maxP: maxP = p
+        if p < minP: minP = p
 
-            sleep(0.1)
+        idx += 1
+
+        if idx == count:
+            T_b = K0 + (maxT + minT) / 2
+            P_b = (maxP + minP) / 2
+            d_h = delta_h(T_b, L_b, P_b, maxP, minP)
+            idx = 0
+            maxP = 0.0
+            minP = 0.0
+            maxT = 0.0
+            minT = 0.0
+            h_d_ft = d_h * 3.28084
+            print(f'{h_d_ft:4.2f} ft')
 
 except KeyboardInterrupt:
 
-        pass
+    pass
