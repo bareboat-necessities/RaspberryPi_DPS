@@ -46,7 +46,7 @@ class DPS:
 
     __bus = smbus.SMBus(1)
 
-    __addr = 0x77
+    __addr = 0x76
 
 
 
