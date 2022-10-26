@@ -20,7 +20,7 @@ dps310 = DPS.DPS()
 # delta_h = (T_b/L_b) (power(P1/P_b, F) - power(P2/P_b, F))
 
 L_b = -0.0065
-R = 8.31432
+R = 8.3144598
 g_0 = 9.80665
 M = 0.0289644
 K0 = 273.15
