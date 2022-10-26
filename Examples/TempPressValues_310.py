@@ -27,8 +27,9 @@ K0 = 273.15
 h_bias = 0.08
 F = - (R * L_b) / (g_0 * M)
 
-t0 = 0.1  # sec
-count = round(40 / t0)
+t0 = 0.1    # interval for sampling (sec)
+t1 = 40.0   # interval for measuring wave height (sec)
+count = round(t1 / t0)
 
 
 def delta_h(T_b: float, L_b: float, P_b: float, P1: float, P2: float):
