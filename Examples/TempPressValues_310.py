@@ -1,4 +1,4 @@
-import DPS, sys
+import DPS
 
 from time import sleep
 
@@ -28,7 +28,7 @@ h_bias = 0.08
 F = - (R * L_b) / (g_0 * M)
 
 t0 = 0.1    # interval for sampling (sec)
-t1 = 40.0   # interval for measuring wave height (sec)
+t1 = 12.0   # interval for measuring wave height (sec)
 count = round(t1 / t0)
 
 
@@ -40,9 +40,9 @@ try:
 
     idx = 0
     maxP = 0.0
-    minP = sys.float_info.max
+    minP = dps310.measurePressureOnce()
     maxT = 0.0
-    minT = sys.float_info.max
+    minT = dps310.measureTemperatureOnce()
 
     while True:
 
@@ -66,7 +66,8 @@ try:
             T_b = K0 + ((maxT + minT) / 2)
             P_b = (maxP + minP) / 2
             d_h = delta_h(T_b, L_b, P_b, minP, maxP)
-            if d_h > h_bias: d_h -= h_bias
+            if d_h > h_bias:
+                d_h -= h_bias
             idx = 0
             maxP = 0.0
             minP = sys.float_info.max
