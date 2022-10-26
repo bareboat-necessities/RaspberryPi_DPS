@@ -24,7 +24,7 @@ R = 8.3144598
 g_0 = 9.80665
 M = 0.0289644
 K0 = 273.15
-h_bias = 0.08
+h_bias = 0.15 # noise measured at rest
 F = - (R * L_b) / (g_0 * M)
 
 t0 = 0.2    # interval for sampling (sec)
