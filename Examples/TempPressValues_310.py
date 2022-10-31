@@ -4,6 +4,12 @@ from time import sleep
 
 dps310 = DPS.DPS()
 
+# NOTE: do not use this code to measure wave height
+# wave surface is actually the surface of equal pressure.
+# So basically barometer is useless for measuring wave height.
+# It will pick up only noise from the sensor.
+# It’s then even useless for fusion with IMU data.
+
 # P_b = static pressure (pressure at sea level) [Pa]
 # T_b = standard temperature (temperature at sea level) [K]
 # L_b = standard temperature lapse rate [K/m] = -0.0065 [K/m]
