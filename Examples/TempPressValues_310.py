@@ -5,7 +5,8 @@ from time import sleep
 dps310 = DPS.DPS()
 
 # NOTE: do not use this code to measure wave height
-# wave surface is actually the surface of equal pressure.
+# wave surface is actually the surface of equal pressure (at least in trochoidal wave model).
+# Pressure would be equal where speed of water parsels on surface is equal.
 # So basically barometer is useless for measuring wave height.
 # It will pick up only noise from the sensor.
 # It’s then even useless for fusion with IMU data.
